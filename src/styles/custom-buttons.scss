@@ -1,0 +1,71 @@
+@import "./variables.scss";
+
+// BUTTONS
+.btn-neon{
+    display: inline-block;
+    margin-top: 20px;
+    background-color: transparent;
+    padding: 5px 20px;
+    color: #00ff00;
+    border: 1px solid currentColor;
+    // cursor: url("~@/assets/pizzaCurs-2.png"), pointer !important;
+    text-decoration: none;
+    transition: all .2s ease-in;
+    font-weight: bold;
+
+    &:hover{
+        color: #000;
+        border-color: #00ff00;
+        background-color: #00ff00;
+        box-shadow: 0 0 7px #00ff00;
+    }
+
+    &.notOk{
+        color: #f71d15;
+        &:hover{
+            color: #000;
+            border-color: #f71d15;
+            background-color: #f71d15;
+            box-shadow: 0 0 7px #f71d15;
+        }
+    }
+
+    &.maybe{
+        color: #f7e015;
+        &:hover{
+            color: #000;
+            border-color: #f7e015;
+            background-color: #f7e015;
+            box-shadow: 0 0 7px #f7e015;
+        }
+    }
+
+    &.purple{
+        color: #ac64fe;
+        &:hover{
+            color: #fff;
+            border-color: #ac64fe;
+            background-color: #ac64fe;
+            box-shadow: 0 0 7px #ac64fe;
+        }
+    }
+
+    &.light{
+        color: $third-lightgray-color;
+        &:hover{
+            color: #000;
+            border-color: $third-lightgray-color;
+            background-color: $third-lightgray-color;
+            box-shadow: 0 0 7px $third-lightgray-color;
+        }
+    }
+
+    &.round{
+        border-radius: 5px;
+    }
+
+    &.basic-width{
+        min-width: 200px;
+        max-width: 200px;
+    }
+}
