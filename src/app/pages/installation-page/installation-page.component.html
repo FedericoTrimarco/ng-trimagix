@@ -5,13 +5,22 @@
     </div>
 
     <ol>
-        <li>
+        <li *ngFor="let block of codeBlocks; let i = index" class="mb-5" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+            <h6 class="third-title">{{ block.titleBlock }}</h6>
+            <p>{{ block.description }}</p>
             <div class="code-block">
-                <code class="cl-prim">
-                    npm install ng-trimagix --save
-                </code>
+                <pre>
+                    <code class="cl-prim" [innerHTML]="block.codeString"></code>
+                </pre>
             </div>
         </li>
     </ol>
+
+    <div class="mt-1">
+        <button class="btn-neon purple round basic-width py-2" type="button" routerLink="/getting-started/quick-start">
+            Next: Quick Start
+            <i class="fa-solid fa-arrow-right ms-3"></i>
+        </button>
+    </div>
 
 </div>

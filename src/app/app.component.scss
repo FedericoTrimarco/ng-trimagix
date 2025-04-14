@@ -14,12 +14,12 @@
     aside{
         width: 14%;
         margin-top: 77px;
+        position: sticky;
     }
 
     main{
         width: 86%;
-        min-height: 110vh;
-        max-height: 110vh;
+        min-height: 100vh;
         overflow: auto;
         margin-top: 77px;
     }

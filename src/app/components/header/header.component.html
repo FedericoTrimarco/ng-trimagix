@@ -3,7 +3,7 @@
 
     <div class="btn-switch-menu" >
         <div class="button-switch" >
-            <input type="checkbox" id="checkbox">
+            <input type="checkbox" id="checkbox" [class]="{'opened': menuOpened == true}">
             <label for="checkbox" class="toggle" (click)="toggleMenu()">
                 <div class="bars" id="bar1"></div>
                 <div class="bars" id="bar2"></div>
@@ -12,7 +12,7 @@
         </div>
 
         <div class="btn-switch-content" [class]="{'opened': menuOpened == true}">
-            <app-menu-lateral></app-menu-lateral>
+            <app-menu-lateral (emitFunction)="toggleMenu()"></app-menu-lateral>
         </div>
     </div>
 </div>

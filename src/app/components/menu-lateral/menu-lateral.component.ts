@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,6 +10,9 @@ import { RouterModule } from '@angular/router';
   standalone: true
 })
 export class MenuLateralComponent {
+
+  @Output() emitFunction = new EventEmitter<any>();
+  
   menu: any[] = [
     {
       title: "Home",
@@ -27,9 +30,18 @@ export class MenuLateralComponent {
           link: "/getting-started/installation",
           icon: "fa-brands fa-instalod",
           child: null
-        }
+        },
+        {
+          title: "Quick Start",
+          link: "/getting-started/quick-start",
+          icon: "fa-regular fa-file-lines",
+          child: null
+        },
       ]
     }
   ]
 
+  activeEmit(){
+    this.emitFunction.emit();
+  }
 }

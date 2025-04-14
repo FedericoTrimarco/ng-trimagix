@@ -11,16 +11,19 @@ body{
 
 
 
-.primary-tile{
+.primary-title{
     font-size: 100px;
 }
 
 .secondary-title{
     font-size: 50px;
-    
 }
 
-.primary-tile, .secondary-title{
+.third-title{
+    font-size: 20px;
+}
+
+.primary-title, .secondary-title, .third-title{
     font-weight: bolder;
     background: linear-gradient(90deg, #e921c5, #7b2ef3);
     -webkit-background-clip: text;
@@ -40,22 +43,27 @@ body{
 
 
 @media (max-width: 901px){
-    .primary-tile{
+    .primary-title{
         font-size: 70px;
     }
 
-    .secondary-tile{
-        font-size: 40px;
+    .secondary-title{
+        font-size: 30px;
     }
+    
 
 }
 @media (max-width: 510px){
-    .primary-tile{
+    .primary-title{
         font-size: 50px;
     }
 
-    .secondary-tile{
+    .secondary-title{
         font-size: 25px;
+    }
+
+    .third-tile{
+        font-size: 20px;
     }
 
 }

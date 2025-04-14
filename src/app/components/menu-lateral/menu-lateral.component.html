@@ -8,6 +8,7 @@
                 [routerLink]="[m.link]"
                 [routerLinkActiveOptions]="{ exact: !m.child }"
                 routerLinkActive="active"
+                (click)="activeEmit()"
             >
                 <i [class]="m.icon" class="me-2" *ngIf="m.icon"></i>
                 {{m.title}}
@@ -24,6 +25,7 @@
                                 [routerLink]="[c.link]"
                                 [routerLinkActiveOptions]="{ exact: !c.child }"
                                 routerLinkActive="active"
+                                (click)="activeEmit()"
                             >
                                 <i [class]="c.icon" class="me-2" *ngIf="c.icon"></i>
                                 {{c.title}}
