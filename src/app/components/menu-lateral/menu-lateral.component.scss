@@ -1,0 +1,28 @@
+.aside-component{
+    border-right: 1px solid #727272;
+    height: 100%;
+    padding-top: 50px;
+}
+
+.menu-list-custom{
+    padding: 5px;
+    margin: 0;
+
+    li{
+        list-style: none;
+        .menu-element{
+            padding: 10px;
+            border-radius: 5px;
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+            
+            &:hover{
+                background: #792ef332;
+            }
+            
+            &.active{
+                background: linear-gradient(90deg, #7b2ef3, #7b2ef3, #e921c5);
+            }
+        }
+    }
+}

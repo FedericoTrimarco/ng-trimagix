@@ -1,0 +1,104 @@
+#header-component{
+    // background: #fff;
+    position: relative;
+    padding: 15px;
+    color: #fff;
+    transition: all .3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+
+    &.scrolled{
+        background: #3a3939;
+    }
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+
+.btn-switch-menu{
+    .btn-switch-content{
+        position: absolute;
+        left: 0;
+        background: #fff;
+        color: #000;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all .3s ease-in-out;
+        background: #303030;
+        background: linear-gradient(0deg,rgba(48, 48, 48, 1) 0%, rgba(31, 31, 31, 1) 32%, rgba(20, 20, 20, 1) 100%);
+        
+        &.opened{
+            height: 100vh;
+        }
+    }
+}
+#checkbox {
+    display: none;
+}
+
+.toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .5s;
+}
+
+.bars {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(109, 9, 203);
+    border-radius: 4px;
+}
+
+#bar2 {
+    transition-duration: .8s;
+}
+
+#bar1,
+#bar3 {
+    width: 70%;
+}
+
+#checkbox:checked+.toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+}
+
+#checkbox:checked+.toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+}
+
+#checkbox:checked+.toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+}
+
+#checkbox:checked+.toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+}
+
+#checkbox:checked+.toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+}
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 900px) {
+   .btn-switch-menu{
+        display: none;
+   }
+}

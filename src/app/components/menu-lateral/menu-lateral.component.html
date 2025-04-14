@@ -1,3 +1,37 @@
-<div>
-    <h6>aside comp</h6>
+<div class="aside-component cl-prim">
+    
+    <ul class="menu-list-custom">
+        <li *ngFor="let m of menu">
+            <div
+                *ngIf="!m.child"
+                class="menu-element"
+                [routerLink]="[m.link]"
+                [routerLinkActiveOptions]="{ exact: !m.child }"
+                routerLinkActive="active"
+            >
+                <i [class]="m.icon" class="me-2" *ngIf="m.icon"></i>
+                {{m.title}}
+            </div>
+
+            <div *ngIf="m.child" class="menu-element">
+                <details open>
+                    <summary class="text-white">{{m.title}}</summary>
+                    <ul class="py-2">
+                        <li *ngFor="let c of m.child" class="list-none">
+                            <div
+                                *ngIf="!c.child"
+                                class="menu-element"
+                                [routerLink]="[c.link]"
+                                [routerLinkActiveOptions]="{ exact: !c.child }"
+                                routerLinkActive="active"
+                            >
+                                <i [class]="c.icon" class="me-2" *ngIf="c.icon"></i>
+                                {{c.title}}
+                            </div>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+        </li>
+    </ul>
 </div>

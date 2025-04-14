@@ -12,5 +12,17 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+      
+      if(scrollPosition > 0){
+        document.getElementById('header-component').classList.add("scrolled");
+      } else {
+        document.getElementById('header-component').classList.remove("scrolled");
+      }
+    });
+  </script>
 </body>
 </html>

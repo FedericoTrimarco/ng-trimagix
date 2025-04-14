@@ -7,17 +7,41 @@
 
     header{
         width: 100%;
-        
+        position: fixed;
+        z-index: 2;
     }
 
     aside{
         width: 14%;
+        margin-top: 77px;
     }
 
     main{
         width: 86%;
-        min-height: 100vh;
-        max-height: 100vh;
+        min-height: 110vh;
+        max-height: 110vh;
         overflow: auto;
+        margin-top: 77px;
+    }
+
+    @media (max-width: 900px) {
+        aside{
+            width: 0;
+            display: none;
+        }
+        
+        main{
+            width: 100%;
+        }
+    }
+    
+    @media (min-width: 901px) and (max-width: 1090px){
+        aside{
+            width: 20%;
+        }
+    
+        main{
+            width: 80%;
+        }
     }
 }
