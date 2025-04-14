@@ -9,9 +9,19 @@ body{
     scroll-behavior: smooth;
 }
 
+
+
 .primary-tile{
-    font-weight: bolder;
     font-size: 100px;
+}
+
+.secondary-title{
+    font-size: 50px;
+    
+}
+
+.primary-tile, .secondary-title{
+    font-weight: bolder;
     background: linear-gradient(90deg, #e921c5, #7b2ef3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -21,16 +31,31 @@ body{
     color: $third-lightgray-color;
 }
 
+.code-block{
+    padding: 10px 20px;
+    max-width: 600px;
+    background-color: #626262;
+    border-radius: 5px;
+}
+
 
 @media (max-width: 901px){
     .primary-tile{
         font-size: 70px;
     }
 
+    .secondary-tile{
+        font-size: 40px;
+    }
+
 }
 @media (max-width: 510px){
     .primary-tile{
         font-size: 50px;
+    }
+
+    .secondary-tile{
+        font-size: 25px;
     }
 
 }

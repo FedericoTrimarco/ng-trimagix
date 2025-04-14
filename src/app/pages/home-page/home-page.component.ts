@@ -10,4 +10,9 @@ import { RouterModule } from '@angular/router';
 })
 export class HomePageComponent {
 
+  goToGithubPage(){
+    let link = "https://github.com/FedericoTrimarco/ng-trimagix";
+
+    window.open(link, "_blank")
+  }
 }
