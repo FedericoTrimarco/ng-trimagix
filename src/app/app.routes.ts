@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InstallationPageComponent } from './pages/installation-page/installation-page.component';
 import { QuickStartPageComponent } from './pages/quick-start-page/quick-start-page.component';
+import { FormValidatorPageComponent } from './pages/form-validator-page/form-validator-page.component';
 
 export const routes: Routes = [
     { 
@@ -21,5 +22,9 @@ export const routes: Routes = [
     {
         path: 'getting-started/quick-start',
         component: QuickStartPageComponent
+    },
+    {
+        path: 'function-utils/form-group-validator',
+        component: FormValidatorPageComponent
     },
 ];

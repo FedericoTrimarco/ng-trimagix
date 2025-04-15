@@ -38,6 +38,19 @@ export class MenuLateralComponent {
           child: null
         },
       ]
+    },
+    {
+      title: "Functions Utils",
+      link: null,
+      icon: null,
+      child: [
+        {
+          title: "FormGroup Validators",
+          link: "/function-utils/form-group-validator",
+          icon: "fa-solid fa-list-check",
+          child: null
+        }
+      ]
     }
   ]
 

@@ -4,11 +4,11 @@
     align-items: center;
     
     .btn-neon:nth-child(1){
-        animation: float 3s ease-in-out infinite;
+        animation: floatY 3s ease-in-out infinite;
     }
 
     .btn-neon:nth-child(2){
-        animation: float 3.2s ease-in-out infinite;
+        animation: floatY 3.2s ease-in-out infinite;
     }
 }
 
@@ -37,7 +37,7 @@
 }
 
 
-@keyframes float {
+@keyframes floatY {
 	0% {
 		transform: translatey(0px);
 	}
@@ -49,8 +49,32 @@
 	}
 }
 
+@keyframes floatX {
+	0% {
+		transform: translatex(0px);
+	}
+	50% {
+		transform: translatex(-15px);
+	}
+	100% {
+		transform: translatex(0px);
+	}
+}
+
 
 @media (max-width: 901px){
+
+    #home-page{
+
+        .btn-neon:nth-child(1){
+            animation: floatX 3s ease-in-out infinite;
+        }
+    
+        .btn-neon:nth-child(2){
+            animation: floatX 3.2s ease-in-out infinite;
+        }
+    }
+
     .logo{
         flex-direction: column;
     
