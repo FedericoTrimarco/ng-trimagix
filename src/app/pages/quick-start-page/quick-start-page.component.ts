@@ -19,8 +19,13 @@ export class QuickStartPageComponent {
 
   codeBlocks: any[] = [
     {
+      titleBlock: "Install Angular CLI",
+      description: "If you don't already have angular CLI installed on your machine, install it with the npm command:",
+      codeString: "npm install -g @angular/cli"
+    },
+    {
       titleBlock: "Create a New Angular Project",
-      description: "If you don't already have an Angular project, you can create one using the Angular CLI:",
+      description: "Now you can create Angular CLI project:",
       codeString: "ng new my-trimagix-app"
     },
     {
