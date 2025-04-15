@@ -1,8 +1,154 @@
 <div id="installation-page" class="cl-prim p-3">
     <div data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
         <h5 class="secondary-title">FormGroup Validator</h5>
-        <p>This function returns a boolean value if the FormGroup type variable has been validated correctly, otherwise
+        <p>
+            This function returns a boolean value if the FormGroup type variable has been validated correctly, otherwise
             returns an error message with all fields invalidated.<br>
-            Validation also handles formArrays up to 3 levels: main formGroup -> formArray -> formArray of the formArray</p>
+            Validation also handles formArrays up to 3 levels: main formGroup -> formArray -> formArray of the formArray
+        </p>
+        <p class="text-warning">
+            IMPORTANT: Insert specific id for the form containing the paramete <strong class="text-primary">[formGroup]</strong> and for each input/select of formControlName also use a placeholder with a description specification
+        </p>
+        <p class="text-danger">
+            ATTENTION: The error message is based on the FormControlName key, without it you cannot customize the label
+        </p>
+    </div>
+
+    <div class="custom-tab-group">
+        <mat-tab-group>
+            <mat-tab label="Example">
+                <ol>
+                    <li>
+                        <div class="mt-5">
+                            <h5 class="third-title">Simple Validator</h5>
+                            <form class="form-row" [formGroup]="formLogin" id="formLogin">
+                                <div class="col-12 col-md-6 d-flex flex-column mt-2">
+                                    <label>Username</label>
+                                    <input class="form-control" type="text" placeholder="Username" formControlName="username">
+                                </div>
+                                <div class="col-12 col-md-6 d-flex flex-column mt-3">
+                                    <label>Password</label>
+                                    <input class="form-control" type="password" placeholder="Password" formControlName="password">
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button class="btn-neon light round basic-width" type="button" (click)="submitForm()">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mt-5">
+                            <h5 class="third-title">Validator whith error message</h5>
+                            <form class="form-row" [formGroup]="formLoginMessage" id="formLoginMessage">
+                                <div class="col-12 col-md-6 d-flex flex-column mt-2">
+                                    <label>Username</label>
+                                    <input class="form-control" type="text" placeholder="Username" formControlName="username">
+                                </div>
+                                <div class="col-12 col-md-6 d-flex flex-column mt-3">
+                                    <label>Password</label>
+                                    <input class="form-control" type="password" placeholder="Password" formControlName="password">
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button class="btn-neon light round basic-width" type="button" (click)="submitFormMessage()">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mt-5">
+                            <h5 class="third-title">Validator whith error message (Form Array)</h5>
+                            <form class="form-row" [formGroup]="formMessageArray" id="formMessageArray">
+                                <div class="col-12 col-md-6 d-flex flex-column mt-2">
+                                    <label>Name</label>
+                                    <input class="form-control" type="text" placeholder="Name" formControlName="name">
+                                </div>
+                                <div class="col-12 col-md-6 d-flex flex-column mt-3">
+                                    <label>surname</label>
+                                    <input class="form-control" type="surname" placeholder="Surname" formControlName="surname">
+                                </div>
+                                <div class="col-12 mt-3" formArrayName="emailList">
+                                    <h6>Email List:</h6>
+                                    <div class="p-3">
+                                        <div class="row mb-3" *ngFor="let group of emailList.controls; let i = index" [formGroupName]="i">
+                                            <div class="col-3">
+                                                <label for="" class="label">
+                                                    {{i+1}}. Email
+                                                </label>
+                                                <input type="text" class="form-control" id="email-{{i}}" formControlName="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3" formArrayName="cellNumberList">
+                                    <h6>Numbers List:</h6>
+                                    <div class="p-3">
+                                        <div class="row mb-3" *ngFor="let group of cellNumberList.controls; let i = index" [formGroupName]="i">
+                                            <div class="col-3">
+                                                <label for="" class="label">
+                                                    {{i+1}}. Cell
+                                                </label>
+                                                <input type="text" class="form-control" id="cellNumber-{{i}}" formControlName="cellNumber" placeholder="Cell">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button class="btn-neon light round basic-width" type="button" (click)="submitFormMessageArray()">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                </ol>
+            </mat-tab>
+            <mat-tab label="TypeScript">
+                <ol>
+                    <li *ngFor="let block of codeBlocksTs; let i = index" class="mt-5" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                        <h6 class="third-title">{{ block.titleBlock }}</h6>
+                        <p>{{ block.description }}</p>
+                        <div class="code-block d-flex flex-column" *ngIf="block.codeString" id="cod-block-{{i}}">
+                            <pre>
+                                <code class="cl-prim" [innerHTML]="block.codeString"></code>
+                            </pre>
+                        </div>
+            
+                        <div *ngIf="block.codeStringList">
+                            <div *ngFor="let b2 of block.codeStringList; let y = index" class="mt-4">
+                                <h6>{{b2.language}}</h6>
+                                <div class="code-block d-flex flex-column" id="cod-block-list-{{y}}">
+                                    <pre>
+                                        <code class="cl-prim" [innerHTML]="b2.codeStringDetail"></code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </mat-tab>
+            <mat-tab label="HTML">
+                <ol>
+                    <li *ngFor="let block of codeBlocksHtml; let i = index" class="mt-5" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                        <h6 class="third-title">{{ block.titleBlock }}</h6>
+                        <p>{{ block.description }}</p>
+                        <div class="code-block d-flex flex-column" *ngIf="block.codeString" id="cod-block-{{i}}">
+                            <pre>
+                                <code class="cl-prim" [innerHTML]="block.codeString"></code>
+                            </pre>
+                        </div>
+            
+                        <div *ngIf="block.codeStringList">
+                            <div *ngFor="let b2 of block.codeStringList; let y = index" class="mt-4">
+                                <h6>{{b2.language}}</h6>
+                                <div class="code-block d-flex flex-column" id="cod-block-list-{{y}}">
+                                    <pre>
+                                        <code class="cl-prim" [innerHTML]="b2.codeStringDetail"></code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </mat-tab>
+          </mat-tab-group>
+          
     </div>
 </div>
