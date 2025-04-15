@@ -70,7 +70,7 @@
                                     <h6>Email List:</h6>
                                     <div class="p-3">
                                         <div class="row mb-3" *ngFor="let group of emailList.controls; let i = index" [formGroupName]="i">
-                                            <div class="col-3">
+                                            <div class="col-12 col-md-6">
                                                 <label for="" class="label">
                                                     {{i+1}}. Email
                                                 </label>
@@ -83,7 +83,7 @@
                                     <h6>Numbers List:</h6>
                                     <div class="p-3">
                                         <div class="row mb-3" *ngFor="let group of cellNumberList.controls; let i = index" [formGroupName]="i">
-                                            <div class="col-3">
+                                            <div class="col-12 col-md-6">
                                                 <label for="" class="label">
                                                     {{i+1}}. Cell
                                                 </label>
