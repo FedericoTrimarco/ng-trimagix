@@ -9,8 +9,6 @@ body{
     scroll-behavior: smooth;
 }
 
-
-
 .primary-title{
     font-size: 100px;
 }
@@ -37,8 +35,11 @@ body{
 .code-block{
     padding: 10px 20px;
     max-width: 600px;
-    background-color: #626262;
     border-radius: 5px;
+    outline: 5px solid #626262;
+    outline-offset: 5px;
+    background-color: #0e0e0e;
+    margin-top: 20px;
 }
 
 

@@ -12,11 +12,6 @@ import { HookFunctions } from 'ng-trimagix';
 export class QuickStartPageComponent {
 
   numberList: number[] = [];
-
-  constructor(
-    private hf: HookFunctions
-  ){}
-
   codeBlocks: any[] = [
     {
       titleBlock: "Install Angular CLI",
@@ -69,7 +64,7 @@ export class QuickStartPageComponent {
         {
           language: "HTML",
           codeStringDetail: this.escapeHtml(`
-          <button (click)="generateNumberList()">
+          <button (click)="generateNumberList()" type="button">
             Generate number list from 5 to 15
           </button>
           `)
@@ -77,6 +72,61 @@ export class QuickStartPageComponent {
       ]
     },
   ]
+
+  constructor(
+    private hf: HookFunctions
+  ){
+
+    this.scrollWindowToTop();
+
+  }
+
+  scrollWindowToTop() {
+    setTimeout(() => {
+      window.scrollTo({
+      top: 0,
+        behavior: 'smooth'
+      });
+    }, 500);
+  }
+
+  copyContent(indexCodeBlock: number) {
+    let elemento: any = document.getElementById('cod-block-' + indexCodeBlock);
+    let testo = elemento.textContent;
+
+    navigator.clipboard.writeText(testo.trim()).then(() => {
+      let icon: any = document.getElementById('cod-block-btn-icon-' + indexCodeBlock);
+      icon.classList.remove("fa-solid", "fa-clipboard");
+      icon.classList.add("fa-solid", "fa-clipboard-check");
+
+      setTimeout(() => {
+        icon.classList.remove("fa-solid", "fa-clipboard-check");
+        icon.classList.add("fa-solid", "fa-clipboard");
+      }, 2000);
+
+    }).catch(err => {
+      console.error("Error: ", err);
+    });
+  }
+
+  copyContentList(indexCodeBlock: number) {
+    let elemento: any = document.getElementById('cod-block-list-'+indexCodeBlock);
+    let testo = elemento.textContent;
+
+    navigator.clipboard.writeText(testo.trim()).then(() => {
+      let icon: any = document.getElementById('cod-block-btn-icon-list-'+indexCodeBlock);
+      icon.classList.remove("fa-solid", "fa-clipboard");
+      icon.classList.add("fa-solid", "fa-clipboard-check");
+
+      setTimeout(() => {
+        icon.classList.remove("fa-solid", "fa-clipboard-check");
+        icon.classList.add("fa-solid", "fa-clipboard");
+      }, 2000);
+
+    }).catch(err => {
+      console.error("Error: ", err);
+    });
+  }
 
   generateNumberList(){
     this.numberList = this.hf.generateNumberList(5, 15);

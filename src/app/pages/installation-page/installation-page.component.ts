@@ -1,21 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { HookFunctions } from 'ng-trimagix';
 
 @Component({
   selector: 'app-installation-page',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './installation-page.component.html',
   styleUrl: './installation-page.component.scss',
   providers: [HookFunctions]
 })
 export class InstallationPageComponent {
-
-  constructor(
-    private hf: HookFunctions
-  ){
-
-  }
 
   codeBlocks: any[] = [
     {
@@ -53,4 +48,58 @@ export class InstallationPageComponent {
       `
     }
   ]
+
+  constructor(
+    private hf: HookFunctions
+  ){
+    this.scrollWindowToTop();
+  }
+
+  scrollWindowToTop() {
+    setTimeout(() => {
+      window.scrollTo({
+      top: 0,
+        behavior: 'smooth'
+      });
+    }, 500);
+  } 
+
+  copyContent(indexCodeBlock: number) {
+    let elemento: any = document.getElementById('cod-block-' + indexCodeBlock);
+    let testo = elemento.textContent;
+
+    navigator.clipboard.writeText(testo.trim()).then(() => {
+      let icon: any = document.getElementById('cod-block-btn-icon-' + indexCodeBlock);
+      icon.classList.remove("fa-solid", "fa-clipboard");
+      icon.classList.add("fa-solid", "fa-clipboard-check");
+
+      setTimeout(() => {
+        icon.classList.remove("fa-solid", "fa-clipboard-check");
+        icon.classList.add("fa-solid", "fa-clipboard");
+      }, 2000);
+
+    }).catch(err => {
+      console.error("Error: ", err);
+    });
+  }
+
+  copyContentList(indexCodeBlock: number) {
+    let elemento: any = document.getElementById('cod-block-list-'+indexCodeBlock);
+    let testo = elemento.textContent;
+
+    navigator.clipboard.writeText(testo.trim()).then(() => {
+      let icon: any = document.getElementById('cod-block-btn-icon-list-'+indexCodeBlock);
+      icon.classList.remove("fa-solid", "fa-clipboard");
+      icon.classList.add("fa-solid", "fa-clipboard-check");
+
+      setTimeout(() => {
+        icon.classList.remove("fa-solid", "fa-clipboard-check");
+        icon.classList.add("fa-solid", "fa-clipboard");
+      }, 2000);
+
+    }).catch(err => {
+      console.error("Error: ", err);
+    });
+  }
+  
 }
