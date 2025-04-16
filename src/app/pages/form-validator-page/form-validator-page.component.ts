@@ -246,7 +246,7 @@ export class FormValidatorPageComponent {
     },
     {
       titleBlock: "Validator whith error message (Form Array)",
-      description: "When using this.hf.validateFormByFormGroupAndFormId you can customize the error message by passing a list of strings as the fourth argument",
+      description: "",
       codeString: this.escapeHtml(`
       <form class="form-row" [formGroup]="formMessageArray" id="formMessageArray">
         <div class="col-12 col-md-6 d-flex flex-column mt-2">
