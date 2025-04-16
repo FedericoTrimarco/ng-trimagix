@@ -12,7 +12,7 @@ A powerful, flexible, and intuitive Angular library for building modern web appl
 The recommended way to install ng-trimagix is through npm:
 
 ```bash
-   ng-trimagix is through npm:
+   npm install ng-trimagix --save
 ```
 
 #### 2) Yarn Installation
