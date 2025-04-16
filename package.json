@@ -23,7 +23,7 @@
     "@popperjs/core": "^2.11.8",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
-    "ng-trimagix": "^0.0.14",
+    "ng-trimagix": "^0.0.17",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

@@ -4,6 +4,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InstallationPageComponent } from './pages/installation-page/installation-page.component';
 import { QuickStartPageComponent } from './pages/quick-start-page/quick-start-page.component';
 import { FormValidatorPageComponent } from './pages/form-validator-page/form-validator-page.component';
+import { ModalConfirmPageComponent } from './pages/modal-confirm-page/modal-confirm-page.component';
 
 export const routes: Routes = [
     { 
@@ -26,5 +27,9 @@ export const routes: Routes = [
     {
         path: 'function-utils/form-group-validator',
         component: FormValidatorPageComponent
+    },
+    {
+        path: 'function-utils/modal-confirm',
+        component: ModalConfirmPageComponent
     },
 ];

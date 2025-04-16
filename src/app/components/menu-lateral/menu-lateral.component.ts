@@ -49,7 +49,13 @@ export class MenuLateralComponent {
           link: "/function-utils/form-group-validator",
           icon: "fa-solid fa-list-check",
           child: null
-        }
+        },
+        {
+          title: "Confrim Modal",
+          link: "/function-utils/modal-confirm",
+          icon: "fa-solid fa-comment-nodes",
+          child: null
+        },
       ]
     }
   ]
