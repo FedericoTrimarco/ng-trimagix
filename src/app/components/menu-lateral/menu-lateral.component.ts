@@ -51,8 +51,8 @@ export class MenuLateralComponent {
           child: null
         },
         {
-          title: "Confrim Modal",
-          link: "/function-utils/modal-confirm",
+          title: "Modals",
+          link: "/function-utils/modals",
           icon: "fa-solid fa-comment-nodes",
           child: null
         },

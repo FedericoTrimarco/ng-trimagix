@@ -1,0 +1,78 @@
+
+<div id="modal-confirm-page" class="cl-prim p-3">
+    <div data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+        <h5 class="secondary-title">Modals</h5>
+        <p>
+            Function to create a simple modal or a simple operation confirmation modal
+        </p>
+    </div>
+
+    <div class="custom-tab-group">
+        <mat-tab-group>
+            <mat-tab label="Modal">
+                <div class="p-4">
+                    <button (click)="openModalTest()" class="btn-neon purple basic-width round">
+                        Simple Modal
+                    </button>
+                </div>
+            </mat-tab>
+            <mat-tab label="Modal Confirm">
+                <div class="p-4">
+                    <button (click)="confrimModalTest()" class="btn-neon purple basic-width round">
+                        Confirm Modal
+                    </button>
+                </div>
+            </mat-tab>
+            <mat-tab label="TypeScript">
+                <ol>
+                    <li *ngFor="let block of codeBlocksTs; let i = index" class="mt-5" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                        <h6 class="third-title">{{ block.titleBlock }}</h6>
+                        <p>{{ block.description }}</p>
+                        <div class="code-block d-flex flex-column" *ngIf="block.codeString" id="cod-block-{{i}}">
+                            <pre>
+                                <code class="cl-prim" [innerHTML]="block.codeString"></code>
+                            </pre>
+                        </div>
+            
+                        <div *ngIf="block.codeStringList">
+                            <div *ngFor="let b2 of block.codeStringList; let y = index" class="mt-4">
+                                <h6>{{b2.language}}</h6>
+                                <div class="code-block d-flex flex-column" id="cod-block-list-{{y}}">
+                                    <pre>
+                                        <code class="cl-prim" [innerHTML]="b2.codeStringDetail"></code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </mat-tab>
+            <mat-tab label="HTML">
+                <ol>
+                    <li *ngFor="let block of codeBlocksHtml; let i = index" class="mt-5" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                        <h6 class="third-title">{{ block.titleBlock }}</h6>
+                        <p>{{ block.description }}</p>
+                        <div class="code-block d-flex flex-column" *ngIf="block.codeString" id="cod-block-{{i}}">
+                            <pre>
+                                <code class="cl-prim" [innerHTML]="block.codeString"></code>
+                            </pre>
+                        </div>
+            
+                        <div *ngIf="block.codeStringList">
+                            <div *ngFor="let b2 of block.codeStringList; let y = index" class="mt-4">
+                                <h6>{{b2.language}}</h6>
+                                <div class="code-block d-flex flex-column" id="cod-block-list-{{y}}">
+                                    <pre>
+                                        <code class="cl-prim" [innerHTML]="b2.codeStringDetail"></code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>
+
+

@@ -9,13 +9,14 @@
     align-items: center;
 
     &.scrolled{
-        background: #2b2929;
+        backdrop-filter: blur(20px);
     }
 }
 
 .logo-img-header{
     width: 60px;
     height: 60px;
+    cursor: pointer;
 
     img{
         width: 100%;
