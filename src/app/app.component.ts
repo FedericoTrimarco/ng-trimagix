@@ -5,6 +5,7 @@ import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.com
 import 'aos/dist/aos.css';
 import { NewConfirmModalService } from 'ng-trimagix';
 import { AosService } from './services/aos.service';
+import { CodeBlockComponent } from './components/code-block/code-block.component';
 
 @Component({
   selector: 'app-root',

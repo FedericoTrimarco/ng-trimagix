@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { HookFunctions } from 'ng-trimagix';
+import { codeBlock } from '../../interfaces/code-block-interface';
+import { CodeBlockComponent } from "../../components/code-block/code-block.component";
 
 @Component({
   selector: 'app-quick-start-page',
-  imports: [CommonModule],
+  imports: [CommonModule, CodeBlockComponent],
   templateUrl: './quick-start-page.component.html',
   styleUrl: './quick-start-page.component.scss',
   providers: [HookFunctions]
@@ -12,25 +14,32 @@ import { HookFunctions } from 'ng-trimagix';
 export class QuickStartPageComponent {
 
   numberList: number[] = [];
-  codeBlocks: any[] = [
+  codeBlocks: codeBlock[] = [
     {
       titleBlock: "Install Angular CLI",
       description: "If you don't already have angular CLI installed on your machine, install it with the npm command:",
-      codeString: "npm install -g @angular/cli"
+      canCopy: true,
+      codeString: "npm install -g @angular/cli",
+      codeStringList: null
     },
     {
       titleBlock: "Create a New Angular Project",
       description: "Now you can create Angular CLI project:",
-      codeString: "ng new my-trimagix-app"
+      canCopy: true,
+      codeString: "ng new my-trimagix-app",
+      codeStringList: null
     },
     {
       titleBlock: "Install ng-trimagix",
       description: "After creating your project, install ng-trimagix:",
-      codeString: "npm install ng-trimagix --save"
+      canCopy: true,
+      codeString: "npm install ng-trimagix --save",
+      codeStringList: null
     },
     {
       titleBlock: "Create a Simple Component",
       description: "Let's create a simple component that uses some of the ng-trimagix components. We use one of the HookFunctions functions to generate a list of numbers:",
+      canCopy: true,
       codeString: null,
       codeStringList: [
         {
@@ -59,7 +68,8 @@ export class QuickStartPageComponent {
               this.numberList = this.hf.generateNumberList(5, 15);
             }
           }
-          `
+          `,
+          canCopy: true,
         },
         {
           language: "HTML",
@@ -67,7 +77,8 @@ export class QuickStartPageComponent {
           <button (click)="generateNumberList()" type="button">
             Generate number list from 5 to 15
           </button>
-          `)
+          `),
+          canCopy: true,
         },
       ]
     },

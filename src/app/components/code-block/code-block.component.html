@@ -1,0 +1,32 @@
+<ol>
+    <li *ngFor="let block of codeBlocks; let i = index" class="mt-5" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+        <h6 class="third-title">{{ block.titleBlock }}</h6>
+        <p>{{ block.description }}</p>
+        <div class="code-block d-flex flex-column" *ngIf="block.codeString" id="cod-block-{{i}}">
+            <div class="align-self-end" *ngIf="block.canCopy">
+                <button (click)="copyContent(i)" class="btn-neon purple round copy-button" type="button" tabindex="0">
+                    <i class="fa-solid fa-clipboard" id="cod-block-btn-icon-{{i}}"></i>
+                </button>
+            </div>
+            <pre>
+                <code class="cl-prim" [innerHTML]="block.codeString"></code>
+            </pre>
+        </div>
+
+        <div *ngIf="block.codeStringList">
+            <div *ngFor="let b2 of block.codeStringList; let y = index" class="mt-4">
+                <h6>{{b2.language}}</h6>
+                <div class="code-block d-flex flex-column" id="cod-block-list-{{y}}">
+                    <div class="align-self-end" *ngIf="b2.canCopy">
+                        <button (click)="copyContentList(y)" class="btn-neon purple round copy-button" type="button" tabindex="0">
+                            <i class="fa-solid fa-clipboard" id="cod-block-btn-icon-list-{{y}}"></i>
+                        </button>
+                    </div>
+                    <pre>
+                        <code class="cl-prim" [innerHTML]="b2.codeStringDetail"></code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </li>
+</ol>

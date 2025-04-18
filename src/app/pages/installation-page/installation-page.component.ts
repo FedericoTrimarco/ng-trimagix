@@ -2,30 +2,37 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HookFunctions } from 'ng-trimagix';
+import { codeBlock } from '../../interfaces/code-block-interface';
+import { CodeBlockComponent } from "../../components/code-block/code-block.component";
 
 @Component({
   selector: 'app-installation-page',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, CodeBlockComponent],
   templateUrl: './installation-page.component.html',
   styleUrl: './installation-page.component.scss',
   providers: [HookFunctions]
 })
 export class InstallationPageComponent {
 
-  codeBlocks: any[] = [
+  codeBlocks: codeBlock[] = [
     {
       titleBlock: "NPM Installation",
       description: "The recommended way to install ng-trimagix is through npm:",
-      codeString: "npm install ng-trimagix --save"
+      canCopy: true,
+      codeString: "npm install ng-trimagix --save",
+      codeStringList: null
     },
     {
       titleBlock: "Yarn Installation",
       description: "If you prefer using Yarn:",
-      codeString: "yarn add ng-trimagix"
+      canCopy: true,
+      codeString: "yarn add ng-trimagix",
+      codeStringList: null
     },
     {
       titleBlock: "Setting Up",
       description: "After installation, you simply need to import one of the ng-trimagix utilities into your component by calling it in the constructor and in the providers:",
+      canCopy: true,
       codeString: `
         import { CommonModule } from '@angular/common';
         import { Component } from '@angular/core';
@@ -45,7 +52,8 @@ export class InstallationPageComponent {
           ){}
           
         }
-      `
+      `,
+      codeStringList: null
     }
   ]
 

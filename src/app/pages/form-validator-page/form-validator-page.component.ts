@@ -3,10 +3,12 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HookFunctions } from 'ng-trimagix';
+import { codeBlock } from '../../interfaces/code-block-interface';
+import { CodeBlockComponent } from "../../components/code-block/code-block.component";
 
 @Component({
   selector: 'app-form-validator-page',
-  imports: [CommonModule, MatTabsModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, MatTabsModule, FormsModule, ReactiveFormsModule, CodeBlockComponent],
   templateUrl: './form-validator-page.component.html',
   styleUrl: './form-validator-page.component.scss',
   standalone: true,
@@ -18,10 +20,11 @@ export class FormValidatorPageComponent {
   formLoginMessage!: FormGroup;
   formMessageArray!: FormGroup;
 
-  codeBlocksTs: any[] = [
+  codeBlocksTs: codeBlock[] = [
     {
       titleBlock: "Simple Validator",
       description: "",
+      canCopy: false,
       codeString: `
         import { CommonModule } from '@angular/common';
         import { Component } from '@angular/core';
@@ -68,11 +71,13 @@ export class FormValidatorPageComponent {
         
           }
         }
-      `
+      `,
+      codeStringList: null
     },
     {
       titleBlock: "Validator whith error message",
       description: "When using this.hf.validateFormByFormGroupAndFormId you just need to pass the third argument to true",
+      canCopy: false,
       codeString: `
         import { CommonModule } from '@angular/common';
         import { Component } from '@angular/core';
@@ -119,11 +124,13 @@ export class FormValidatorPageComponent {
         
           }
         }
-      `
+      `,
+      codeStringList: null
     },
     {
       titleBlock: "Validator whith error message (Form Array)",
       description: "When using this.hf.validateFormByFormGroupAndFormId you can customize the error message by passing a list of strings as the fourth argument",
+      canCopy: false,
       codeString: `
         import { CommonModule } from '@angular/common';
         import { Component } from '@angular/core';
@@ -203,14 +210,16 @@ export class FormValidatorPageComponent {
         
           }
         }
-      `
+      `,
+      codeStringList: null
     },
   ]
 
-  codeBlocksHtml: any[] = [
+  codeBlocksHtml: codeBlock[] = [
     {
       titleBlock: "Simple Validator",
       description: "",
+      canCopy: false,
       codeString: this.escapeHtml(`
       <form class="form-row" [formGroup]="formLogin" id="formLogin">
         <div class="col-12 col-md-6 d-flex flex-column mt-2">
@@ -224,11 +233,13 @@ export class FormValidatorPageComponent {
         <div class="col-12 mt-4">
             <button class="btn-neon light round basic-width" type="button" (click)="submitForm()">Login</button>
         </div>
-      </form>`)
+      </form>`),
+      codeStringList: null
     },
     {
       titleBlock: "Validator whith error message",
       description: "",
+      canCopy: false,
       codeString: this.escapeHtml(`
       <form class="form-row" [formGroup]="formLogin" id="formLogin">
         <div class="col-12 col-md-6 d-flex flex-column mt-2">
@@ -242,11 +253,13 @@ export class FormValidatorPageComponent {
         <div class="col-12 mt-4">
             <button class="btn-neon light round basic-width" type="button" (click)="submitForm()">Login</button>
         </div>
-      </form>`)
+      </form>`),
+      codeStringList: null
     },
     {
       titleBlock: "Validator whith error message (Form Array)",
       description: "",
+      canCopy: false,
       codeString: this.escapeHtml(`
       <form class="form-row" [formGroup]="formMessageArray" id="formMessageArray">
         <div class="col-12 col-md-6 d-flex flex-column mt-2">
@@ -286,7 +299,8 @@ export class FormValidatorPageComponent {
         <div class="col-12 mt-4">
             <button class="btn-neon light round basic-width" type="button" (click)="submitFormMessageArray()">Save</button>
         </div>
-      </form>`)
+      </form>`),
+      codeStringList: null
     },
   ]
 

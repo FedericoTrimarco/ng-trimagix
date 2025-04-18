@@ -2,20 +2,23 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NewConfirmModalService, NewModalService } from 'ng-trimagix';
+import { codeBlock } from '../../interfaces/code-block-interface';
+import { CodeBlockComponent } from "../../components/code-block/code-block.component";
 
 @Component({
   selector: 'app-simple-modal',
-  imports: [CommonModule, MatTabsModule],
+  imports: [CommonModule, MatTabsModule, CodeBlockComponent],
   templateUrl: './simple-modal.component.html',
   styleUrl: './simple-modal.component.scss',
   providers: [NewConfirmModalService, NewModalService]
 })
 export class SimpleModalComponent {
 
-  codeBlocksTs: any[] = [
+  codeBlocksTs: codeBlock[] = [
     {
       titleBlock: "Simple Modal",
       description: "",
+      canCopy: false,
       codeString: `
       import { CommonModule } from '@angular/common';
       import { Component } from '@angular/core';
@@ -41,11 +44,13 @@ export class SimpleModalComponent {
         }
         </span>
       
-      }`
+      }`,
+      codeStringList: null
     },
     {
       titleBlock: "Modal Confirm",
       description: "",
+      canCopy: false,
       codeString: `
       import { CommonModule } from '@angular/common';
       import { Component } from '@angular/core';
@@ -81,26 +86,31 @@ export class SimpleModalComponent {
         }
         </span>
       }
-      `
+      `,
+      codeStringList: null
     },
   ]
 
-  codeBlocksHtml: any[] = [
+  codeBlocksHtml: codeBlock[] = [
     {
       titleBlock: "Simple Modal",
       description: "",
+      canCopy: false,
       codeString: this.escapeHtml(`
       <button (click)="openModalTest()">
         Simple Modal
-      </button>`)
+      </button>`),
+      codeStringList: null
     },
     {
       titleBlock: "Modal Confirm",
       description: "",
+      canCopy: false,
       codeString: this.escapeHtml(`
       <button (click)="confrimModalTest()">
         Confirm Modal
-      </button>`)
+      </button>`),
+      codeStringList: null
     },
     
   ]
