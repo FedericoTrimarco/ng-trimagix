@@ -71,7 +71,7 @@ export class SimpleModalComponent {
         ){}
 
         <span class="text-warning">
-        confrimModalTest() {
+        openConfirmModalTest() {
           this.modalConfrimSevice.confirm("CONFIRM OPERATION", "Are you sure you want to go ahead with the process ?").then(
             (res: any) => {
 
@@ -107,7 +107,7 @@ export class SimpleModalComponent {
       description: "",
       canCopy: false,
       codeString: this.escapeHtml(`
-      <button (click)="confrimModalTest()">
+      <button (click)="openConfirmModalTest()">
         Confirm Modal
       </button>`),
       codeStringList: null
@@ -120,7 +120,7 @@ export class SimpleModalComponent {
     private modalSevice: NewModalService,
   ){}
 
-  confrimModalTest() {
+  openConfirmModalTest() {
     this.modalConfrimSevice.confirm("CONFIRM OPERATION", "Are you sure you want to go ahead with the process ?").then(
       (res: any) => {
 
