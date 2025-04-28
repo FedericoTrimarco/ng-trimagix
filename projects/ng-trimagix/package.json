@@ -1,6 +1,6 @@
 {
   "name": "ng-trimagix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": ">=10.0.0 <=19.2.6",
     "@angular/core": ">=10.0.0 <=19.2.6"
