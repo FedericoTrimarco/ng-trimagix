@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { FormArray, FormControl, FormGroup } from "@angular/forms";
 import { NewConfirmModalService, NewModalService } from "../public-api";
+import html2pdf from 'html2pdf.js';
+
 
 
 @Injectable()
@@ -201,6 +203,30 @@ export class HookFunctions {
                 behavior: 'smooth'
             });
         }, 500);
+    }
+
+    /* ⁡⁢⁡⁢⁣⁡⁢⁣⁡⁢⁣⁣GENERAZIONE PDF TRAMITE ID HTML⁡
+        IT: Questo metodo genera un documento PDF da un elemento HTML specificato dal suo ID utilizzando le libererie jspdf html2canvas. Cattura il contenuto dell'elemento, lo converte in una tela e quindi crea un PDF multipagina, se necessario⁡.⁡
+        
+        ENG: This method generates a PDF document from an HTML element specified by its ID using the jspdf html2canvas libraries. It captures the contents of the item, converts it to a canvas, and then creates a multipage PDF if necessary.⁡⁡
+    */
+    generatePdfByIdHtmlNew(elementId: string, documentName: string = "Document"): void {
+        const data = document.getElementById(elementId);
+
+        if (data) {
+            const opt = {
+                margin: 0,
+                filename: `${documentName}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid', 'before', 'after'] }
+            };
+
+            html2pdf().from(data).set(opt).outputPdf('blob').save();
+        } else {
+            console.error(`Elemento con ID ${elementId} non trovato!`);
+        }
     }
 
     /* ⁡⁢⁡⁢⁣⁣GENERAZIONE LISTA NUMERICA DA PUNTO (A) AD UN PUNTO (B)⁡⁡
